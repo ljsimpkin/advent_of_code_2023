@@ -33,16 +33,16 @@ end
 
 RSpec.describe 'get result' do
   it 'gets the first and last numbers and then returns the sum of all the numbers' do
-    strings = ['1abc2', 'pqr3stu8vwx', 'a1b2c3d4e5f', 'treb7uchet']
-    sum = get_result(strings)
+    string = "1abc2\npqr3stu8vwx\na1b2c3d4e5f\ntreb7uchet"
+    sum = get_result(string)
     expect(sum).to eq(142)
   end
 end
 
 RSpec.describe 'add_website_to_string' do
   it 'gets a website and adds it to a string' do
-    website = 'https://adventofcode.com/2023/day/1/input'
-    response = add_website_to_string(website)
-    expect(response.code.to_i).not_to eq(400)
+    day = '1'
+    response = add_website_to_string(day)
+    expect(response.code.to_i).to eq(200)
   end
 end
