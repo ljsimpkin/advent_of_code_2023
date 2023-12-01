@@ -14,3 +14,11 @@ RSpec.describe 'get_first_and_last_numbers' do
     expect(get_first_and_last_numbers(input)).to eq(output)
   end
 end
+
+RSpec.describe 'sum_numbers' do
+  it 'returns the sum of the numbers in an array' do
+    input = [1, 2, 3, 4, 5]
+    output = 15
+    expect(sum_numbers(input)).to eq(output)
+  end
+end
