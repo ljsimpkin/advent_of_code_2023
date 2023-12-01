@@ -1,4 +1,5 @@
 require 'rspec'
+require_relative 'a'
 
 RSpec.describe 'True' do
   it 'equals true' do
