@@ -1,7 +1,7 @@
-require 'test/unit'
+require 'rspec'
 
-class TestTrue < Test::Unit::TestCase
-  def test_true_equals_true
-    assert_equal(true, true)
+RSpec.describe 'True' do
+  it 'equals true' do
+    expect(true).to eq(true)
   end
 end
