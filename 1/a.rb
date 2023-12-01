@@ -5,3 +5,6 @@ def get_first_and_last_numbers(strings)
     "#{first_number}#{last_number}"
   end
 end
+def sum_numbers(numbers)
+  numbers.sum
+end
