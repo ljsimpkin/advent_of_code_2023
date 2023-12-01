@@ -15,6 +15,14 @@ RSpec.describe 'get_first_and_last_numbers' do
   end
 end
 
+RSpec.describe 'strings_to_numbers' do
+  it 'turns a list of strings of numbers into an array of numbers' do
+    input = ['1', '2', '3', '4', '5']
+    output = [1, 2, 3, 4, 5]
+    expect(strings_to_numbers(input)).to eq(output)
+  end
+end
+
 RSpec.describe 'sum_numbers' do
   it 'returns the sum of the numbers in an array' do
     input = [1, 2, 3, 4, 5]
@@ -27,14 +35,7 @@ RSpec.describe 'Integration' do
   it 'gets the first and last numbers and then returns the sum of all the numbers' do
     strings = ['1abc2', 'pqr3stu8vwx', 'a1b2c3d4e5f', 'treb7uchet']
     numbers = get_first_and_last_numbers(strings)
-    sum = sum_numbers(numbers)
+    sum = sum_numbers(strings_to_numbers(numbers))
     expect(sum).to eq(142)
-  end
-end
-RSpec.describe 'strings_to_numbers' do
-  it 'turns a list of strings of numbers into an array of numbers' do
-    input = ['1', '2', '3', '4', '5']
-    output = [1, 2, 3, 4, 5]
-    expect(strings_to_numbers(input)).to eq(output)
   end
 end

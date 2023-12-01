@@ -9,6 +9,7 @@ end
 def sum_numbers(numbers)
   numbers.sum
 end
+
 def strings_to_numbers(strings)
   strings.map(&:to_i)
 end
