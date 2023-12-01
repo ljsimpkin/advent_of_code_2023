@@ -14,6 +14,9 @@ def get_input(day)
   
   request = Net::HTTP::Get.new(url)
   request["cookie"] = ENV['AOC_COOKIE']
+
   response = http.request(request)
   raise RuntimeError, 'API returned status code other than 200' unless response.code.to_i == 200
+
+  response
 end
