@@ -31,11 +31,10 @@ RSpec.describe 'sum_numbers' do
   end
 end
 
-RSpec.describe 'Integration' do
+RSpec.describe 'get result' do
   it 'gets the first and last numbers and then returns the sum of all the numbers' do
     strings = ['1abc2', 'pqr3stu8vwx', 'a1b2c3d4e5f', 'treb7uchet']
-    numbers = get_first_and_last_numbers(strings)
-    sum = sum_numbers(strings_to_numbers(numbers))
+    sum = get_result(strings)
     expect(sum).to eq(142)
   end
 end
