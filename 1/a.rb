@@ -19,3 +19,6 @@ def get_result(strings)
   sum_numbers(strings_to_numbers(numbers))
 end
 
+def add_website_to_string(string, website)
+  "#{string}#{website}"
+end
