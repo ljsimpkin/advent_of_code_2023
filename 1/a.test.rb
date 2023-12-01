@@ -38,11 +38,11 @@ RSpec.describe 'get result' do
     expect(sum).to eq(142)
   end
 end
+
 RSpec.describe 'add_website_to_string' do
   it 'gets a website and adds it to a string' do
-    website = 'www.example.com'
-    string = 'This is a string. '
-    result = add_website_to_string(string, website)
+    website = 'https://adventofcode.com/2023/day/1/input'
+    result = add_website_to_string(website)
     expect(result).to be_a(String)
   end
 end
