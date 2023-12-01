@@ -19,6 +19,11 @@ def get_result(strings)
   sum_numbers(strings_to_numbers(numbers))
 end
 
+require 'net/http'
+require 'uri'
+
 def add_website_to_string(string, website)
-  "#{string}#{website}"
+  uri = URI.parse(website)
+  response = Net::HTTP.get_response(uri)
+  "#{string}#{response.body}"
 end
