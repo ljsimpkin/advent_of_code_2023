@@ -31,3 +31,10 @@ RSpec.describe 'Integration' do
     expect(sum).to eq(142)
   end
 end
+RSpec.describe 'strings_to_numbers' do
+  it 'turns a list of strings of numbers into an array of numbers' do
+    input = ['1', '2', '3', '4', '5']
+    output = [1, 2, 3, 4, 5]
+    expect(strings_to_numbers(input)).to eq(output)
+  end
+end
