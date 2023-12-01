@@ -40,11 +40,10 @@ def string_into_array(string)
   string.split("\n")
 end
 
-def get_result(string)
-  byebug
+def get_result(string = add_website_to_string(1).body)
   strings = string.split("\n")
   numbers = get_first_and_last_numbers(strings)
   sum_numbers(strings_to_numbers(numbers))
 end
 
-# puts get_result("hi")
+puts get_result
