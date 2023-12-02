@@ -7,7 +7,7 @@ RSpec.describe 'get_restult' do
   end
 
   it 'test_convert_string_to_numbers' do
-    result = convert_string_to_numbers("two1nine")
-    expect(result).to eq([2, 1, 9])
+    result = convert_string_to_numbers("xyztwo1ninea")
+    expect(result).to eq("xyz219a")
   end
 end
