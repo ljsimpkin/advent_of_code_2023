@@ -10,4 +10,9 @@ RSpec.describe 'get_restult' do
     result = convert_string_to_numbers("xyztwo1ninea")
     expect(result).to eq("xyz219a")
   end
+
+  it 'test_change_array_values' do
+    result = change_array_values([1, 2, 3])
+    expect(result).to eq([2, 3, 4])
+  end
 end
