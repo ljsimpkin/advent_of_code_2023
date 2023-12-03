@@ -35,7 +35,6 @@ def get_first_and_last_numbers(string)
 
     # check last string index is a digit
     if last == 0 and string[(-1 * (i + 1))].match?(/\d/)
-      # puts "hello index = #{i} letter = #{string[(-1 * (i + 1))]}"
       last = string[(-1 * (i + 1))].to_i
     end
 
