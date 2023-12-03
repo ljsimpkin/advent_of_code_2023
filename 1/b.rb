@@ -48,7 +48,7 @@ def get_first_and_last_numbers(string)
       end
 
       # incrament throught the last characters of a string
-      if last == 0 and string[(-1*i)..-1].include?(word)
+      if last == 0 and string[(-1 * (i + 1))..-1].include?(word)
         last = digit
       end
     end

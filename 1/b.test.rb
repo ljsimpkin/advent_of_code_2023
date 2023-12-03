@@ -23,6 +23,6 @@ RSpec.describe 'get_restult' do
     result_2 = get_first_and_last_numbers("eightwo23abc456def78nine")
     
     expect(result).to eq([1, 9])
-    # expect(result_2).to eq([8, 9])
+    expect(result_2).to eq([8, 9])
   end
 end
