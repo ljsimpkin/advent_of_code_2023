@@ -1,6 +1,7 @@
 require 'net/http'
 require 'uri'
 require 'openssl'
+require 'dotenv/load'
 
 
 # get_input takes the day and returns the puzzle input for that day
@@ -16,7 +17,7 @@ def get_input(day)
   request["cookie"] = ENV['AOC_COOKIE']
 
   response = http.request(request)
+  raise RuntimeError, 'Advent of code cookie not found' unless request["cookie"]
   raise RuntimeError, 'API returned status code other than 200' unless response.code.to_i == 200
-
   response
 end

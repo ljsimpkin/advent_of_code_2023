@@ -21,8 +21,6 @@ def get_first_and_last_numbers(string)
   last = 0
 
   while i < string.length do
-    # puts string[0,i]
-    # puts string[(-1*i)..-1]
 
     # break while look if first and last number found
     if first != 0 and last != 0
@@ -55,8 +53,7 @@ def get_first_and_last_numbers(string)
 
     i += 1
   end
-  # puts "returning first and last #{first} #{last}"
-  # first * 10 + last
+
   [first, last]
 end
 
@@ -69,7 +66,7 @@ def update_array_with_digits(array)
 end
 
 # gets the answer of the puzzle
-def get_result(input = get_input("1"))
+def get_result(input = get_input("1").body)
   total = 0
   input_array = input.split("\n")
 
@@ -80,3 +77,5 @@ def get_result(input = get_input("1"))
 
   total
 end
+
+print get_result
