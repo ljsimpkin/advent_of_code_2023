@@ -28,17 +28,6 @@ def get_first_and_last_numbers(string)
     if first != 0 and last != 0
       break
     end
-    
-    # check first string index is a digit
-    if first == 0 and string[i].match?(/\d/)
-      first = string[i].to_i
-    end
-
-    # check last string index is a digit
-    if last == 0 and string[(-1 * (i + 1))].match?(/\d/)
-      # puts "hello index = #{i} letter = #{string[(-1 * (i + 1))]}"
-      last = string[(-1 * (i + 1))].to_i
-    end
 
     # look for a number word
     word_to_number.each do |word, digit|
@@ -52,10 +41,23 @@ def get_first_and_last_numbers(string)
         last = digit
       end
     end
+
+    # check first string index is a digit
+    if first == 0 and string[i].match?(/\d/)
+      first = string[i].to_i
+    end
+
+    # check last string index is a digit
+    if last == 0 and string[(-1 * (i + 1))].match?(/\d/)
+      # puts "hello index = #{i} letter = #{string[(-1 * (i + 1))]}"
+      last = string[(-1 * (i + 1))].to_i
+    end
+
     i += 1
   end
-
-  [first,last]
+  # puts "returning first and last #{first} #{last}"
+  # first * 10 + last
+  [first, last]
 end
 
 def update_array_with_digits(array)
@@ -66,9 +68,15 @@ def update_array_with_digits(array)
   updated_array
 end
 
+# gets the answer of the puzzle
 def get_result(input = get_input("1"))
-  input_array = update_array_with_digits(input.split("\n"))
-  puts input_array
-  numbers = get_first_and_last_numbers(input_array)
-  sum_numbers(strings_to_numbers(numbers))
+  total = 0
+  input_array = input.split("\n")
+
+  input_array.each do |string|
+    number_array = get_first_and_last_numbers(string)
+    total += (number_array[0] * 10) + number_array[1]
+  end
+
+  total
 end
