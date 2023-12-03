@@ -8,11 +8,14 @@ RSpec.describe 'get_restult' do
 
   it 'test_convert_string_to_numbers' do
     result = convert_string_to_numbers("xyztwo1ninea")
+    result_2 = convert_string_to_numbers("neightwothree")
+
     expect(result).to eq("xyz219a")
+    expect(result_2).to eq("n8wo3")
   end
 
-  it 'test_change_array_values' do
-    result = change_array_values([1, 2, 3])
-    expect(result).to eq([2, 3, 4])
+  it 'test_update_array_with_digits' do
+    result = update_array_with_digits(["xyztwo1ninea", "xyztwo3ninea", "xyztwo1sevena"])
+    expect(result).to eq(["xyz219a", "xyz239a", "xyz217a"])
   end
 end
