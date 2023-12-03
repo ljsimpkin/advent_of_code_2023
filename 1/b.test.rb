@@ -18,4 +18,8 @@ RSpec.describe 'get_restult' do
     result = update_array_with_digits(["xyztwo1ninea", "xyztwo3ninea", "xyztwo1sevena"])
     expect(result).to eq(["xyz219a", "xyz239a", "xyz217a"])
   end
+  it 'test_get_first_and_last_numbers' do
+    result = get_first_and_last_numbers("123abc456def789")
+    expect(result).to eq([123, 789])
+  end
 end
