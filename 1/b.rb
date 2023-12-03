@@ -1,18 +1,6 @@
 require_relative "../lib/utils.rb"
 require_relative "a.rb"
 
-# This function takes a string and finds all the numbers spelt out in that string
-def convert_string_to_numbers(string)
-   word_to_nuber = {"one" => 1, "two" => 2, "three" => 3, "four" => 4, "five" => 5, "six" => 6, "seven" => 7, "eight" => 8, "nine" => 9}
-   string_of_numbers = string
-   word_to_nuber.each do |word, digit|
-    if string.include?(word)
-      string_of_numbers.gsub! word, digit.to_s
-    end
-  end
-  string_of_numbers
-end
-
 def get_first_and_last_numbers(string)
   word_to_number = {"one" => 1, "two" => 2, "three" => 3, "four" => 4, "five" => 5, "six" => 6, "seven" => 7, "eight" => 8, "nine" => 9}
   numbers = []
@@ -55,14 +43,6 @@ def get_first_and_last_numbers(string)
   end
 
   [first, last]
-end
-
-def update_array_with_digits(array)
-  updated_array = []
-  array.each do |string|
-    updated_array.push(convert_string_to_numbers(string))
-  end
-  updated_array
 end
 
 # gets the answer of the puzzle
