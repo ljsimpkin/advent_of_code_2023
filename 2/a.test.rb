@@ -7,21 +7,14 @@ RSpec.describe '2/a tests' do
   end
   
   it 'parse_max_colour returns a hash of a single puzzles max values' do
-    puzzle = "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green"
+    puzzle = "Game 1: 3 blue, 4 red, 5 blue; 1 red, 2 green, 6 blue; 2 green"
     result = parse_max_colour(puzzle)
-    expected_result = {"blue" => 6, "red" => 4, "green" => 2}
+    expected_result = {"id" => 1, "blue" => 8, "red" => 4, "green" => 2}
 
-    puzzle_2 = "Game 1: 3 blue, 4 red, 5 blue; 1 red, 2 green, 6 blue; 2 green"
-    result_2 = parse_max_colour(puzzle_2)
-    expected_result_2 = {"blue" => 8, "red" => 4, "green" => 2}
-    
-    expect(result["blue"]).to eq(6)
+    expect(result["id"]).to eq(1)
+    expect(result["blue"]).to eq(8)
     expect(result["red"]).to eq(4)
     expect(result["green"]).to eq(2)
-
-    expect(result_2["blue"]).to eq(8)
-    expect(result_2["red"]).to eq(4)
-    expect(result_2["green"]).to eq(2)
   end
 
   it 'parse_puzzles returns an array of a single puzzle' do
