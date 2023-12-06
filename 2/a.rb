@@ -1,3 +1,5 @@
+require_relative "../lib/utils.rb"
+
 def sum_set(set)
 	# set = "3 blue, 4 red, 5 blue"
 	sum_set = {}
@@ -72,7 +74,7 @@ def is_possible(puzzle, criterea)
 end
 
 
-def get_answer(puzzle_input)
+def get_answer(puzzle_input = get_input("2").body)
 	criterea = {"red" => 12, "green" => 13, "blue" => 14}
 
 	max_puzzle_array = parse_puzzles(puzzle_input)
@@ -80,9 +82,10 @@ def get_answer(puzzle_input)
 	count = 0
 	max_puzzle_array.each do |puzzle|
 		if is_possible(puzzle, criterea)
-			puts puzzle
 			count += puzzle["id"]
 		end
 	end
 	count
 end
+
+puts get_answer
