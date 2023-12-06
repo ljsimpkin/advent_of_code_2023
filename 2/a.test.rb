@@ -20,7 +20,7 @@ RSpec.describe '2/a tests' do
   it 'parse_puzzles returns an array of a single puzzle' do
     puzzle = "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green\nGame 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green\nGame 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green"
     result = parse_puzzles(puzzle)
-    expected_result = [{"blue" => 6, "red" => 4, "green" => 2}, {"blue" => 6, "red" => 4, "green" => 2}, {"blue" => 6, "red" => 4, "green" => 2}]  
+    expected_result = [{"id" => 1, "blue" => 6, "red" => 4, "green" => 2}, {"id" => 1, "blue" => 6, "red" => 4, "green" => 2}, {"id" => 1, "blue" => 6, "red" => 4, "green" => 2}]  
     
     expect(result).to eq(expected_result)
   end
