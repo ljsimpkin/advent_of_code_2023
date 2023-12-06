@@ -59,7 +59,7 @@ def is_possible(puzzle, criterea)
 
 	criterea.each do |key, criterea_value|
 		if puzzle[key] > criterea_value
-			puts "I want the puzzle's colour #{key} to be less than the #{criterea_value} but it is #{puzzle[key]}"
+			# puts "I want the puzzle's colour #{key} to be less than the #{criterea_value} but it is #{puzzle[key]}"
 			possible = false
 			break
 		end
@@ -70,5 +70,16 @@ end
 
 
 def get_answer(puzzle_input)
-	8
+	criterea = {"red" => 12, "green" => 13, "blue" => 14}
+
+	max_puzzle_array = parse_puzzles(puzzle_input)
+
+	count = 0
+	max_puzzle_array.each do |puzzle|
+		if is_possible(puzzle, criterea)
+			puts puzzle
+			count += 1
+		end
+	end
+	count
 end
