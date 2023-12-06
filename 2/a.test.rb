@@ -12,7 +12,7 @@ RSpec.describe '2/a tests' do
     expected_result = {"blue" => 6, "red" => 4, "green" => 2}
 
     puzzle_2 = "Game 1: 3 blue, 4 red, 5 blue; 1 red, 2 green, 6 blue; 2 green"
-    result_2 = parse_max_colour(puzzle)
+    result_2 = parse_max_colour(puzzle_2)
     expected_result_2 = {"blue" => 8, "red" => 4, "green" => 2}
     
     expect(result["blue"]).to eq(6)

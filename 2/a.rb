@@ -1,17 +1,39 @@
+def sum_set(set)
+	# set = "3 blue, 4 red, 5 blue"
+	sum_set = {}
+
+	set.split(",").each do |nb_colour|
+		nb_colour_array = nb_colour.split(" ")
+		if sum_set[nb_colour_array[1]]
+			sum_set[nb_colour_array[1]] += nb_colour_array[0].to_i
+		else
+			sum_set[nb_colour_array[1]] = nb_colour_array[0].to_i
+		end
+	end
+	sum_set	
+end
+
 def parse_max_colour(puzzle)
 	# "Game 1: 3 blue, 4 red, 5 blue; 1 red, 2 green, 6 blue; 2 green"
-	puzzle = puzzle.split(":")
-	puzzle = puzzle[1].split(/[;,,]/)
 	max_colours = {}
+	summed_sets = []
+	puzzle = puzzle.split(":")
+	sets = puzzle[1].split(";")
 
-	puzzle.each do |nb_colour|
-		nb_colour_array = nb_colour.split(" ")
-		if max_colours[nb_colour_array[1]]
-			if max_colours[nb_colour_array[1]] < nb_colour_array[0].to_i
-				max_colours[nb_colour_array[1]] = nb_colour_array[0].to_i
+	# summate each sets common colours
+	sets.each do |set|
+		summed_sets.push(sum_set(set))
+	end
+
+	summed_sets.each do |set|
+		set.each do |colour, number|
+			if max_colours[colour]
+				if max_colours[colour] < number.to_i
+					max_colours[colour] = number.to_i
+				end
+			else
+				max_colours[colour] = number.to_i
 			end
-		else
-			max_colours[nb_colour_array[1]] = nb_colour_array[0].to_i
 		end
 	end
 
