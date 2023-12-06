@@ -20,6 +20,9 @@ def parse_max_colour(puzzle)
 	puzzle = puzzle.split(":")
 	sets = puzzle[1].split(";")
 
+	# add the id to max_colours
+	max_colours["id"] = puzzle[0].split(" ")[1].to_i
+
 	# summate each sets common colours
 	sets.each do |set|
 		summed_sets.push(sum_set(set))
@@ -78,7 +81,7 @@ def get_answer(puzzle_input)
 	max_puzzle_array.each do |puzzle|
 		if is_possible(puzzle, criterea)
 			puts puzzle
-			count += 1
+			count += puzzle["id"]
 		end
 	end
 	count
