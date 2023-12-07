@@ -7,17 +7,11 @@ def get_answer(puzzle)
       next if char == '.'
 
       # Check the characters around the current character
-      [-1, 0, 1].each do |di|
-        [-1, 0, 1].each do |dj|
-          next if di == 0 && dj == 0
-          ni, nj = i + di, j + dj
+      (-1..1).each do |d|
+        ni, nj = (i + d) % rows.size, (j + d) % row.size
 
-          # Check if the new indices are within the bounds of the puzzle
-          next if ni < 0 || ni >= rows.size || nj < 0 || nj >= row.size
-
-          # Add the number to the sum if it's a number
-          sum += rows[ni][nj].to_i if rows[ni][nj] =~ /\d/
-        end
+        # Add the number to the sum if it's a number
+        sum += rows[ni][nj].to_i if rows[ni][nj] =~ /\d/
       end
     end
   end
