@@ -10,6 +10,15 @@ def get_answer(puzzle)
     row.each_with_index do |cell, j|
       # If the cell is a number
       if cell =~ /\d/
+        # Initialize the number
+        number = cell
+        # Check the right neighbor
+        k = j + 1
+        while k < row.size && row[k] =~ /\d/
+          # If the neighbor is a number, append it to the current number
+          number += row[k]
+          k += 1
+        end
         # Check the 8 neighbors
         neighbors = [
           [i-1, j-1], [i-1, j], [i-1, j+1],
@@ -19,7 +28,7 @@ def get_answer(puzzle)
         neighbors.each do |x, y|
           # If the neighbor is a symbol, add the number to the sum
           if x.between?(0, grid.size-1) && y.between?(0, row.size-1) && grid[x][y] =~ /[^.\d]/
-            sum += cell.to_i
+            sum += number.to_i
             break
           end
         end
