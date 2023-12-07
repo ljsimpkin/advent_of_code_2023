@@ -13,7 +13,7 @@ def get_answer(puzzle)
         # Check the 8 neighbors
         neighbors = [
           [i-1, j-1], [i-1, j], [i-1, j+1],
-          [i, j-1],             [i, j+1],
+          [i, j-1],               [i, j+1],
           [i+1, j-1], [i+1, j], [i+1, j+1]
         ]
         neighbors.each do |x, y|
