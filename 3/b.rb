@@ -5,8 +5,9 @@ def get_answer(puzzle = get_input("3").body)
   # Parse the puzzle into a 2D array
   grid = puzzle.split("\n").map { |row| row.split('') }
 
-  # Initialize the product
-  product = 1
+  # Initialize the total product and group product
+  product = 0
+  group_product = 1
 
   # Initialize the counted numbers
   counted = []
@@ -42,21 +43,24 @@ def get_answer(puzzle = get_input("3").body)
         neighbors.each do |x, y|
           # If the neighbor is a gear symbol and the number has not been counted
           if x.between?(0, grid.size-1) && y.between?(0, row.size-1) && grid[x][y] == '*' && !counted.include?(number)
-            # Multiply the product by the number
-            product *= number.to_i
+            # Multiply the group product by the number
+            group_product *= number.to_i
             # Mark the number as counted
             counted << number
             break
           end
         end
-      elsif cell == '.'
-        # Reset the counted numbers
+      elsif cell == '.' || i == grid.size-1 && j == row.size-1
+        # Add the group product to the total product
+        product += group_product
+        # Reset the group product and the counted numbers
+        group_product = 1
         counted = []
       end
     end
   end
 
-  # Return the product
+  # Return the total product
   product
 end
 
