@@ -14,6 +14,14 @@ def get_answer(puzzle)
       if cell =~ /\d/
         # Initialize the number
         number = cell
+        # Check the left neighbor
+        k = j - 1
+        while k >= 0 && row[k] =~ /\d/
+          # If the neighbor is a number, prepend it to the current number
+          number = row[k] + number
+          k -= 1
+        end
+
         # Check the right neighbor
         k = j + 1
         while k < row.size && row[k] =~ /\d/
