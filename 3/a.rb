@@ -1,3 +1,5 @@
+require 'byebug'
+
 def get_answer(puzzle)
   # Parse the puzzle into a 2D array
   grid = puzzle.split("\n").map { |row| row.split('') }
@@ -26,6 +28,7 @@ def get_answer(puzzle)
           [i+1, j-1], [i+1, j], [i+1, j+1]
         ]
         neighbors.each do |x, y|
+          byebug
           # If the neighbor is a symbol, add the number to the sum
           if x.between?(0, grid.size-1) && y.between?(0, row.size-1) && grid[x][y] =~ /[^.\d]/
             sum += number.to_i
