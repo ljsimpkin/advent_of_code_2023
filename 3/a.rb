@@ -1,6 +1,7 @@
 require 'byebug'
+require_relative "../lib/utils.rb"
 
-def get_answer(puzzle)
+def get_answer(puzzle = get_input("3").body)
   # Parse the puzzle into a 2D array
   grid = puzzle.split("\n").map { |row| row.split('') }
 
@@ -45,7 +46,6 @@ def get_answer(puzzle)
             sum += number.to_i
             # Mark the number as counted
             counted << number
-            # byebug
             break
           end
         end
@@ -59,3 +59,5 @@ def get_answer(puzzle)
   # Return the sum
   sum
 end
+
+puts get_answer()
