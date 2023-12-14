@@ -45,7 +45,7 @@ def get_answer(puzzle)
             sum += number.to_i
             # Mark the number as counted
             counted << number
-            byebug
+            # byebug
             break
           end
         end
