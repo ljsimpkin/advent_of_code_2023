@@ -49,6 +49,9 @@ def get_answer(puzzle)
             break
           end
         end
+      elsif cell == '.'
+        # Reset the counted numbers
+        counted = []
       end
     end
   end
