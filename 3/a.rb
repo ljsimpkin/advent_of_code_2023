@@ -7,6 +7,9 @@ def get_answer(puzzle)
   # Initialize the sum
   sum = 0
 
+  # Initialize the counted numbers
+  counted = []
+
   # Iterate over each cell in the grid
   grid.each_with_index do |row, i|
     row.each_with_index do |cell, j|
@@ -36,9 +39,12 @@ def get_answer(puzzle)
           [i+1, j-1], [i+1, j], [i+1, j+1]
         ]
         neighbors.each do |x, y|
-          # If the neighbor is a symbol, add the number to the sum
-          if x.between?(0, grid.size-1) && y.between?(0, row.size-1) && grid[x][y] =~ /[^.\d]/
+          # If the neighbor is a symbol and the number has not been counted
+          if x.between?(0, grid.size-1) && y.between?(0, row.size-1) && grid[x][y] =~ /[^.\d]/ && !counted.include?(number)
+            # Add the number to the sum
             sum += number.to_i
+            # Mark the number as counted
+            counted << number
             byebug
             break
           end
