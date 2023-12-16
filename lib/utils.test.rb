@@ -10,3 +10,14 @@ RSpec.describe 'get_input' do
     expect { get_input('-1') }.to raise_error(RuntimeError, 'API returned status code other than 200')
   end
 end
+
+RSpec.describe 'return_input' do
+  it 'return_input saves puzzle to a file' do
+    expect(true).to eq(false)
+  end
+
+  xit 'return_input does not get_input if puzzle file already exists' do
+  end 
+
+end
+
