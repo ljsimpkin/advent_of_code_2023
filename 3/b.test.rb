@@ -11,6 +11,9 @@ RSpec.describe 'True' do
     expect(get_answer("1*1..\n.....\n1....")).to eq(1)
     expect(get_answer("1*2")).to eq(2)
     expect(get_answer("1*1..\n*....\n7....")).to eq(8)
+    expect(get_answer("1*1\n.*.\n...")).to eq(2)
+    expect(get_answer("1*1\n.*.\n1.1")).to eq(1)
+    expect(get_answer("1*1\n.*.\n1*1")).to eq(2)
   end
 
 end

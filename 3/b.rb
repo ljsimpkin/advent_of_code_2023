@@ -57,16 +57,16 @@ def get_answer(puzzle = get_input("3").body)
         ]
         neighbors.each do |x, y|
           # If the neighbor is a * and the number has not been counted for that symbol
-          if x.between?(0, grid.size-1) && y.between?(0, row.size-1) && grid[x][y] == '*' && !counted.include?("#{x}#{y}")
+          if x.between?(0, grid.size-1) && y.between?(0, row.size-1) && grid[x][y] == '*' && !counted.include?("#{x},#{y}")
             # Add the number to the hash {[i,j] => [x,y,z]}
-            if gear_number_neighbors["#{x}#{y}"]
-              gear_number_neighbors["#{x}#{y}"].push(number)
+            if gear_number_neighbors["#{x},#{y}"]
+              gear_number_neighbors["#{x},#{y}"].push(number)
             else
-              gear_number_neighbors["#{x}#{y}"] = [number]
+              gear_number_neighbors["#{x},#{y}"] = [number]
             end
             sum += number.to_i
             # Mark the number as counted
-            counted << "#{x}#{y}"
+            counted << "#{x},#{y}"
           end
         end
       else # if cell is not a number
@@ -81,4 +81,4 @@ def get_answer(puzzle = get_input("3").body)
   multiply_and_sum(gear_number_neighbors)
 end
 
-# puts get_answer()
+puts get_answer()
