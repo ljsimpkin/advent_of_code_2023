@@ -26,8 +26,10 @@ RSpec.describe 'return_input' do
     expect(File.exist?('./cache/cache_test/puzzle_1')).to eq(true)
   end
 
-  xit 'return_input does not get_input if puzzle file already exists' do
-  end 
+  it 'return_input returns a string of text' do
+    result = return_input('1', "./cache/cache_test")
+    expect(result).to be_a(String)
+  end
 
 end
 
