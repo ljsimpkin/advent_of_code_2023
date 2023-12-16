@@ -23,9 +23,12 @@ def get_input(day)
 end
 
 # cache_input saves the puzzle input to a file
-def cache_input
+def cache_input(day, response)
+  File.open("puzzle_#{day}", 'w') { |file| file.write(response.body) }
 end
 
 # return_input gets the puzzle input and saves it to a file if it's not already saved
 def return_input(day)
+  response = get_input(day)
+  cache_input(day, response)
 end
