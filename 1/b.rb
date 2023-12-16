@@ -45,7 +45,7 @@ def get_first_and_last_numbers(string)
 end
 
 # gets the answer of the puzzle
-def get_result(input = get_input("1").body)
+def get_result(input = get_puzzle("1"))
   total = 0
   input_array = input.split("\n")
 
