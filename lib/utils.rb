@@ -21,3 +21,11 @@ def get_input(day)
   raise RuntimeError, 'API returned status code other than 200' unless response.code.to_i == 200
   response
 end
+
+# cache_input saves the puzzle input to a file
+def cache_input
+end
+
+# return_input gets the puzzle input and saves it to a file if it's not already saved
+def return_input(day)
+end
