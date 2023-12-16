@@ -1,3 +1,4 @@
+require 'fileutils'
 require_relative "utils.rb"
 
 RSpec.describe 'get_input' do
