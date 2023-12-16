@@ -12,18 +12,18 @@ RSpec.describe 'get_input' do
   end
 end
 
-RSpec.describe 'return_input' do
+RSpec.describe 'get_puzzle' do
   before do
     FileUtils.rm_rf(Dir.glob('cache/cache_test/*')) # clear cache/cache_test directory
   end
-  
-  it 'return_input saves puzzle to /cache/cache_test/puzzle_1' do
-    return_input('1', "./cache/cache_test")
+
+  it 'get_puzzle saves puzzle to /cache/cache_test/puzzle_1' do
+    get_puzzle('1', "./cache/cache_test")
     expect(File.exist?('./cache/cache_test/puzzle_1')).to eq(true)
   end
 
-  it 'return_input returns the puzzle input' do
-    result = return_input('1', "./cache/cache_test")
+  it 'get_puzzle returns the puzzle input' do
+    result = get_puzzle('1', "./cache/cache_test")
     expect(result).to be_a(String)
   end
 
