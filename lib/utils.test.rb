@@ -12,9 +12,9 @@ RSpec.describe 'get_input' do
 end
 
 RSpec.describe 'return_input' do
-  it 'return_input saves puzzle to a file' do
-    return_input('5')
-    expect(File.exist?('puzzle_5')).to eq(true)
+  it 'return_input saves puzzle to /cache/cache_test/puzzle_1' do
+    return_input('1', "./cache/cache_test")
+    expect(File.exist?('./cache/cache_test/puzzle_1')).to eq(true)
   end
 
   xit 'return_input does not get_input if puzzle file already exists' do
