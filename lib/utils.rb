@@ -22,16 +22,14 @@ def get_input(day)
   response
 end
 
-# cache_input saves the puzzle input to a file
-def cache_input(day, response)
-  Dir.mkdir('data/test_data') unless File.exists?('data/test_data')
-  File.open("data/test_data/puzzle_#{day}", 'w') { |file| file.write(response.body) }
-end
-
 # return_input gets the puzzle input and saves it to a file if it's not already saved
 def return_input(day, cache_path = "/cache/puzzles")
-  response = get_input(day)
+  if (File.exists?("#{cache_path}/puzzle_#{day}"))
+    return File.read("#{cache_path}/puzzle_#{day}")
+  else
+    response = get_input(day)
   # cache_input unless it is already cached
-  File.open("#{cache_path}/puzzle_#{day}", 'w') { |file| file.write(response.body) } unless File.exists?("#{cache_path}/puzzle_#{day}")
-  File.read("#{cache_path}/puzzle_#{day}")
+    File.open("#{cache_path}/puzzle_#{day}", 'w') { |file| file.write(response.body) } unless File.exists?("#{cache_path}/puzzle_#{day}")
+    File.read("#{cache_path}/puzzle_#{day}")
+  end
 end
