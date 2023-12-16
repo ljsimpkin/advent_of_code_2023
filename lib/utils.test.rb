@@ -27,5 +27,9 @@ RSpec.describe 'get_puzzle' do
     expect(result).to be_a(String)
   end
 
+  it 'raises an error when the function fails' do
+    expect { get_puzzle('-1', "./cache/cache_test") }.to raise_error(RuntimeError)
+  end
+
 end
 
