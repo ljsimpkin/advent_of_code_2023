@@ -33,4 +33,5 @@ def return_input(day, cache_path = "/cache/puzzles")
   response = get_input(day)
   # cache_input unless it is already cached
   File.open("#{cache_path}/puzzle_#{day}", 'w') { |file| file.write(response.body) } unless File.exists?("#{cache_path}/puzzle_#{day}")
+  File.read("#{cache_path}/puzzle_#{day}")
 end
