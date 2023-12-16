@@ -24,7 +24,8 @@ end
 
 # cache_input saves the puzzle input to a file
 def cache_input(day, response)
-  File.open("puzzle_#{day}", 'w') { |file| file.write(response.body) }
+  Dir.mkdir('data/test_data') unless File.exists?('data/test_data')
+  File.open("data/test_data/puzzle_#{day}", 'w') { |file| file.write(response.body) }
 end
 
 # return_input gets the puzzle input and saves it to a file if it's not already saved
