@@ -24,10 +24,10 @@ end
 
 # get_puzzle gets the puzzle for that day and caches it
 def get_puzzle(day, cache_path = "./cache/puzzles")
+  # check if file exists and if not request puzzle
   if (!File.exists?("#{cache_path}/puzzle_#{day}"))
     response = get_input(day)
     File.open("#{cache_path}/puzzle_#{day}", 'w') { |file| file.write(response.body) } unless File.exists?("#{cache_path}/puzzle_#{day}")
-    File.read("#{cache_path}/puzzle_#{day}")
   end
   File.read("#{cache_path}/puzzle_#{day}")
 end
