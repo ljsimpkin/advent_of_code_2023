@@ -38,4 +38,4 @@ def get_answer(puzzle_input = get_puzzle(4))
   total
 end
 
-print "\n\nanswer = \n\n  #{get_answer()} \n\n"
+# print "\n\nanswer = \n\n  #{get_answer()} \n\n"
