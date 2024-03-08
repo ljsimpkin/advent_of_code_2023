@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# This script creates a new directory with the next number in the current directory
+# and copies the template files into the new directory.
 require 'fileutils'
 
 # Find the highest numbered directory
