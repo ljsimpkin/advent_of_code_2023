@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 # This script creates a new directory with the next number in the current directory
 # and copies the template files into the new directory.
 require 'fileutils'
@@ -17,4 +16,3 @@ Dir.mkdir(next_dir.to_s)
 
 # Copy the template files to the new directory
 FileUtils.cp_r('lib/template/.', "#{next_dir}/")
-#!/usr/bin/env ruby
