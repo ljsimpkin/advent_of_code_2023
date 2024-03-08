@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'fileutils'
 
 # Find the highest numbered directory
 max_dir = Dir.glob('*').select { |f| File.directory? f }.map { |d| d.to_i }.max
@@ -11,4 +12,7 @@ next_dir = max_dir + 1
 
 # Create the new directory
 Dir.mkdir(next_dir.to_s)
+
+# Copy the template files to the new directory
+FileUtils.cp_r('lib/template/.', "#{next_dir}/")
 #!/usr/bin/env ruby
