@@ -21,14 +21,43 @@ def parse_puzzle(puzzle_input)
   hash
 end
 
-      # key, values = line.split(':')
-      # hash[key.strip.to_sym] = values.strip.split(' ').map(&:to_i)
-    # elsif line.include?('map')
-    #   key = line.split(' ').first.to_sym
-    #   hash[key] = []
-    # else
-      # hash[key] << line.split(' ').map(&:to_i)
-    # end
+def is_in_range(mapping, number)
+  mapping[1] <= number && number < (mapping[1] + mapping[2])
+end
+
+def translate_number(mappings, number)
+  destination = number
+
+  mappings.each do |mapping|
+    if is_in_range(mapping, number)
+      destination = number - mapping[1] + mapping[0]
+      break;
+    end
+  end
+
+  destination
+end
+
+def seed_to_location(mappings, seed_number)
+  location = seed_number
+
+  mappings.each do |mapping|
+    if mapping[0] != "seeds"
+      location = translate_number(mapping[1], location)
+    end
+  end
+  location
+end
 
 def get_answer_a(puzzle_input = get_puzzle(5))
+  puzzle = parse_puzzle(puzzle_input)
+  locations = []
+
+  puzzle["seeds"].each do |seed|
+    locations.push(seed_to_location(puzzle, seed))
+  end
+
+  locations.min
 end
+
+# print get_answer_a()
