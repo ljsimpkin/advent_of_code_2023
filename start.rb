@@ -14,5 +14,16 @@ next_dir = max_dir + 1
 # Create the new directory
 Dir.mkdir(next_dir.to_s)
 
-# Copy the template files to the new directory
+# Copy the template files to the new directory and replace "PUZZLE_DAY" with the name of the new directory
 FileUtils.cp_r('lib/template/.', "#{next_dir}/")
+
+# Open each file in the new directory
+Dir.glob("#{next_dir}/*").each do |file|
+  text = File.read(file)
+
+  # Replace "PUZZLE_DAY" with the name of the new directory
+  new_contents = text.gsub("PUZZLE_DAY", next_dir.to_s)
+
+  # Write the changes to the file
+  File.open(file, "w") {|file| file.puts new_contents }
+end
