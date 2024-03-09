@@ -33,4 +33,4 @@ def get_answer_a(puzzle_input = get_puzzle(6))
   puzzle.map { |h| number_of_ways_you_can_win(h["Time"], h["Distance"]) }.inject(:*)
 end
 
-print get_answer_a()
+# print get_answer_a()
