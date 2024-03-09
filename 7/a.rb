@@ -64,7 +64,7 @@ end
 
 def sort_hands(hands)
   hands.sort do |hand1, hand2|
-    compare_hands(hand1[0], hand2[0]) ? -1 : 1
+    compare_hands(hand1[0], hand2[0]) ? 1 : -1
   end
 end
 
