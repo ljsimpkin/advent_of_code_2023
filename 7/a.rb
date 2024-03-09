@@ -63,6 +63,9 @@ def compare_hands(hand1, hand2)
 end
 
 def sort_hands(hands)
+  hands.sort do |hand1, hand2|
+    compare_hands(hand1[0], hand2[0]) ? -1 : 1
+  end
 end
 
 def get_answer_a(puzzle_input = get_puzzle(7))
