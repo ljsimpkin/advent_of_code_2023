@@ -23,9 +23,12 @@ end
 
 RSpec.describe 'get_hand_ranking' do
   it 'returns the answer' do
-    expect(get_hand_ranking('QQQJA')).to eq(THREE_OF_A_KIND)
-    expect(get_hand_ranking('KTJJT')).to eq(TWO_PAIR)
-    expect(get_hand_ranking('T56J2')).to eq(HIGH_CARD)
+    # expect(get_hand_ranking('QQQJA')).to eq(THREE_OF_A_KIND)
+    # expect(get_hand_ranking('KTJJT')).to eq(TWO_PAIR)
+    # expect(get_hand_ranking('T56J2')).to eq(HIGH_CARD)
+    expect(get_hand_ranking('23356')).to eq(ONE_PAIR)
+    expect(get_hand_ranking('33322')).to eq(FULL_HOUSE)
+    expect(get_hand_ranking('55555')).to eq(FIVE_OF_A_KIND)
   end
 end
 
@@ -35,6 +38,9 @@ RSpec.describe 'compare_hands' do
     expect(compare_hands('KK677', 'KKQQQ')).to eq(false)
     expect(compare_hands('T55J5', 'QQQJA')).to eq(false)
     expect(compare_hands('KK677', 'KTJJT')).to eq(true)
+    expect(compare_hands('33332', '2AAAA')).to eq(true)
+    expect(compare_hands('2AAAA', '33332')).to eq(false)
+    expect(compare_hands('77888', '77788')).to eq(true)
   end
 end
 

@@ -25,6 +25,7 @@ end
 
 def get_hand_ranking(hand)
   counts = hand.chars.group_by(&:itself).transform_values(&:count)
+  byebug
   case counts.values.sort
   when [1, 4] then FOUR_OF_A_KIND
   when [2, 3] then FULL_HOUSE
@@ -51,7 +52,7 @@ def compare_hands(hand1, hand2)
   strength1 = hand1.chars.map { |card| get_card_strength(card) }
   strength2 = hand2.chars.map { |card| get_card_strength(card) }
 
-  # Compare the card strengths from highest to lowest.
+  # Compare the card strengths in order.
   strength1.each_with_index do |card1, i|
     card2 = strength2[i]
     return true if card1 > card2
@@ -72,6 +73,8 @@ def get_answer_a(puzzle_input = get_puzzle(7))
   puzzle = parse_puzzle(puzzle_input)
   sorted_puzzle = sort_hands(puzzle)
 
+  # byebug
+
   score = 0
 
   sorted_puzzle.each_with_index do |hand, i|
@@ -81,4 +84,4 @@ def get_answer_a(puzzle_input = get_puzzle(7))
   score
 end
 
-print get_answer_a()
+# print get_answer_a()
