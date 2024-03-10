@@ -48,8 +48,8 @@ def compare_hands(hand1, hand2)
   return ranking1 > ranking2 if ranking1 != ranking2
 
   # If the hand rankings are the same, compare the card strengths.
-  strength1 = hand1.chars.map { |card| get_card_strength(card) }.sort.reverse
-  strength2 = hand2.chars.map { |card| get_card_strength(card) }.sort.reverse
+  strength1 = hand1.chars.map { |card| get_card_strength(card) }
+  strength2 = hand2.chars.map { |card| get_card_strength(card) }
 
   # Compare the card strengths from highest to lowest.
   strength1.each_with_index do |card1, i|
@@ -69,5 +69,16 @@ def sort_hands(hands)
 end
 
 def get_answer_a(puzzle_input = get_puzzle(7))
-  
+  puzzle = parse_puzzle(puzzle_input)
+  sorted_puzzle = sort_hands(puzzle)
+
+  score = 0
+
+  sorted_puzzle.each_with_index do |hand, i|
+    score += hand[1].to_i * (i + 1)
+  end
+
+  score
 end
+
+print get_answer_a()

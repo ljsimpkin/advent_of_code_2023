@@ -2,6 +2,7 @@ require 'net/http'
 require 'uri'
 require 'openssl'
 require 'dotenv/load'
+require 'byebug'
 
 
 # get_input takes the day and returns the puzzle input for that day
