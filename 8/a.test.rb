@@ -1,6 +1,6 @@
 require_relative 'a'
 
-puzzle_demo = "LLR
+puzzle_1 = "LLR
 
 AAA = (BBB, BBB)
 BBB = (AAA, ZZZ)
@@ -26,10 +26,10 @@ end
 
 RSpec.describe 'get_answer' do
   xit 'returns the answer' do
-    expect(get_answer_a(puzzle_demo)).to eq(6)
+    expect(get_answer_a(puzzle_1)).to eq(6)
   end
 
-  xit 'returns the answer 2' do
+  it 'returns the answer 2' do
     expect(get_answer_a(puzzle_2)).to eq(2)
   end
 end
