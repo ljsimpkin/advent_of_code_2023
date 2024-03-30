@@ -23,9 +23,9 @@ end
 
 RSpec.describe 'get_hand_ranking' do
   it 'returns the answer' do
-    # expect(get_hand_ranking('QQQJA')).to eq(THREE_OF_A_KIND)
-    # expect(get_hand_ranking('KTJJT')).to eq(TWO_PAIR)
-    # expect(get_hand_ranking('T56J2')).to eq(HIGH_CARD)
+    expect(get_hand_ranking('QQQJA')).to eq(THREE_OF_A_KIND)
+    expect(get_hand_ranking('KTJJT')).to eq(TWO_PAIR)
+    expect(get_hand_ranking('T56J2')).to eq(HIGH_CARD)
     expect(get_hand_ranking('23356')).to eq(ONE_PAIR)
     expect(get_hand_ranking('33322')).to eq(FULL_HOUSE)
     expect(get_hand_ranking('55555')).to eq(FIVE_OF_A_KIND)
