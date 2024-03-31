@@ -25,7 +25,7 @@ RSpec.describe 'parse_input' do
 end
 
 RSpec.describe 'get_answer' do
-  xit 'returns the answer' do
+  it 'returns the answer' do
     expect(get_answer_a(puzzle_1)).to eq(6)
   end
 

@@ -15,54 +15,57 @@ def parse_input(puzzle_input)
   return puzzle
 end
 
-puzzle_2 = "RL
-
-AAA = (BBB, CCC)
-BBB = (DDD, EEE)
-CCC = (ZZZ, GGG)
-DDD = (DDD, DDD)
-EEE = (EEE, EEE)
-GGG = (GGG, GGG)
-ZZZ = (ZZZ, ZZZ)"
-
 def get_answer_a(puzzle_input = get_puzzle(8))
   puzzle = parse_input(puzzle_input)
-  # byebug
   first_map = puzzle["map"].first
 
   key = first_map[0]
   count = 0
-  
-  puzzle["directions"].split("").each do |direction|
-    if key == "ZZZ"
-      return count
+  directions = puzzle["directions"].split("")
+  index = 0
+
+  while key != "ZZZ"
+    direction = directions[index % directions.length]
+
+    if count == 0
+      key = direction == "L" ? first_map[1][LEFT] : first_map[1][RIGHT]
+    else
+      key = direction == "L" ? puzzle["map"][key][LEFT] : puzzle["map"][key][RIGHT]
     end
 
-    # puzzle_2 = "RL
-
-    # AAA = (BBB, CCC)
-    # BBB = (DDD, EEE)
-    # CCC = (ZZZ, GGG)
-    # DDD = (DDD, DDD)
-    # EEE = (EEE, EEE)
-    # GGG = (GGG, GGG)
-    # ZZZ = (ZZZ, ZZZ)"
-
-    if direction == "L" && count == 0
-      key = first_map[1][LEFT]
-    elsif direction == "R" && count == 0
-      key = first_map[1][RIGHT]
-    end
-
-    if direction == "L" && count != 0
-      key = puzzle["map"][key][LEFT]
-    elsif direction == "R" && count != 0
-      key = puzzle["map"][key][RIGHT]
-    end
-    
     count += 1
+    index += 1
   end
+  
+  # puzzle["directions"].split("").each do |direction|
+  #   if key == "ZZZ"
+  #     return count
+  #   end
 
+  #   # puzzle_1 = "LLR
+
+  #   # AAA = (BBB, BBB)
+  #   # BBB = (AAA, ZZZ)
+  #   # ZZZ = (ZZZ, ZZZ)"
+
+  #   if direction == "L" && count == 0
+  #     key = first_map[1][LEFT]
+  #   elsif direction == "R" && count == 0
+  #     key = first_map[1][RIGHT]
+  #   end
+
+  #   if direction == "L" && count != 0
+  #     key = puzzle["map"][key][LEFT]
+  #   elsif direction == "R" && count != 0
+  #     key = puzzle["map"][key][RIGHT]
+  #   end
+    
+  #   count += 1
+  # end
 
   return count
 end
+
+puts "getting answer"
+puts get_answer_a() if $PROGRAM_NAME == __FILE__
+puts "answer gotten"
