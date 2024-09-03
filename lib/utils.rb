@@ -6,7 +6,7 @@ require 'byebug'
 
 
 # get_input takes the day and returns the puzzle input for that day
-def get_input(day)  
+def get_input(day)
   urlstring = "https://adventofcode.com/2023/day/#{day}/input"
   url = URI(urlstring)
   
